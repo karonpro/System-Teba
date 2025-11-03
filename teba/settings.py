@@ -29,9 +29,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',               # local dev
     'localhost',               # local dev
     '0.0.0.0',                 # sometimes used locally
-     # optional www
+    'teba-paint-center.onrender.com',  # production on Render
 ]
-
 
 # =======================
 # APPLICATION DEFINITION
@@ -84,11 +83,6 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
     'core.middleware.LocationAccessMiddleware',
     'axes.middleware.AxesMiddleware',
-
-
-
-
-    
 ]
 
 # =======================
@@ -122,17 +116,13 @@ WSGI_APPLICATION = 'teba.wsgi.application'
 
 import dj_database_url
 
-import dj_database_url
-import os
-
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
         conn_max_age=600,
-        ssl_require=not DEBUG,  # Railway requires SSL
+        ssl_require=not DEBUG,
     )
 }
-
 
 # =======================
 # PASSWORD VALIDATION
@@ -158,7 +148,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"  # WhiteNoise collects static files here
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 
 # =======================
 # AUTHENTICATION BACKENDS
@@ -194,10 +183,8 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://localhost:8000',
     'http://0.0.0.0:8000',
-    'https://teba-production.up.railway.app',
-    'https://www.teba-production.up.railway.app',
+    'https://teba-paint-center.onrender.com',
 ]
-
 
 # =======================
 # SECURITY SETTINGS
@@ -272,7 +259,7 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 # =======================
 
 SITE_NAME = "Teba System"
-SITE_DOMAIN = "teba-production.up.railway.app"
+SITE_DOMAIN = "teba-paint-center.onrender.com"
 
 ADMINS = [('Admin', os.getenv('ADMIN_EMAIL', 'tebaspprt@gmail.com'))]
 MANAGERS = ADMINS
@@ -318,4 +305,3 @@ LOGGING = {
 # =======================
 # DEVELOPMENT SETTINGS
 # =======================
-
