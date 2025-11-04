@@ -307,4 +307,7 @@ LOGGING = {
 
 # =======================
 # DEVELOPMENT SETTINGS
-# =======================
+# ===import os
+if os.environ.get('VERCEL'):
+    DEBUG = False
+====================
