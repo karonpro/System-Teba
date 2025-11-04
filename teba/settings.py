@@ -29,7 +29,9 @@ ALLOWED_HOSTS = [
     '127.0.0.1',               # local dev
     'localhost',               # local dev
     '0.0.0.0',                 # sometimes used locally
-    'system-teba.onrender.com',  # Render production domain
+    'system-teba.onrender.com',
+    '.vercel.app',
+    # Render production domain
 ]
 
 # =======================
@@ -259,7 +261,8 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 # =======================
 
 SITE_NAME = "Teba System"
-SITE_DOMAIN = "system-teba.onrender.com"
+SITE_DOMAIN = teba.vercel.app
+
 
 ADMINS = [('Admin', os.getenv('ADMIN_EMAIL', 'tebaspprt@gmail.com'))]
 MANAGERS = ADMINS
