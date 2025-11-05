@@ -30,7 +30,8 @@ ALLOWED_HOSTS = [
     'localhost',               # local dev
     '0.0.0.0',                 # sometimes used locally
     'system-teba.onrender.com',
-    '.vercel.app',
+    'vercel.app',
+    'teba.vercel.app',
     # Render production domain
 ]
 
